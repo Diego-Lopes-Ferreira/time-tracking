@@ -1,10 +1,15 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text, TouchableHighlight } from 'react-native';
 
-// import { Container } from './styles';
+import { styles } from '../utils/styles';
 
-const ConfigTime = () => {
-  return <View />;
+export default function ConfigTime({ navigation }) {
+  return (
+    <View style={styles.container}>
+      <Text>Outra pagina</Text>
+      <TouchableHighlight onPress={() => {navigation.goBack()}}>
+        <Text>Go back</Text>
+      </TouchableHighlight>
+    </View>
+  );
 }
-
-export default ConfigTime;
