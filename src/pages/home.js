@@ -1,18 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Dimensions, View, Text, TouchableOpacity, FlatList } from 'react-native';
 
-import { styles } from '../utils/styles';
+import { styles, homePage, texts } from '../utils/styles';
 import CardTime from '../components/card-time';
 
 export default function Home({ navigation }) {
+  const [refreshing, setRefreshing] = useState(false);
+  const [timeNow, setTimeNow] = useState('');
+  function getNow() {
+    return ;
+  }
+  useEffect(() => {
+    navigation.addListener('focus', () => {
+      setTimeNow(new Date().toTimeString().slice(0, 5));
+    });
+  }, [navigation])
+
   return (
     <View style={styles.container}>
-      <Text>Bom dia</Text>
-      <TouchableOpacity
-        onPress={() => { navigation.navigate('ConfigTime') }}
-      >
-        <Text>Go to other page</Text>
-      </TouchableOpacity>
+      <View style={homePage.header}>
+        <Text style={texts.titleMedium}>Bom dia</Text>
+        <Text style={texts.titleBig}>{timeNow}</Text>
+      </View>
       <FlatList
         style={{ flex: 1, width: Dimensions.get('window').width - 10 }}
         data={test_data}
@@ -37,6 +46,8 @@ export default function Home({ navigation }) {
             }}
           />
         )}
+        onRefresh={() => {console.log('oi')}}
+        refreshing={refreshing}
       />
     </View>
   );

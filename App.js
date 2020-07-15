@@ -3,8 +3,6 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
-//import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-//import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
 import { Feather } from '@expo/vector-icons';
@@ -16,9 +14,46 @@ import Settings from './src/pages/settings';
 
 import ConfigTime from './src/pages/config-time';
 
+/*
+  This file contains both navigator for the app: Tab navigator / Stack navigator
+  The App function returns a stack navigator for all pages, and the tab navigator
+  The Tabs function returns a tab navigator in wich contains all 3 tabs
+  
+  The navigation wors like that:
+  Tabs
+    Home - CardTime
+      ConfigTime
+    Info - CardPieChart, CardGoals
 
-//const Tab = createBottomTabNavigator();
-//const Tab = createMaterialBottomTabNavigator();
+    Settings
+      ConfigTask
+      ConfigCat
+      ConfigGoal  
+*/
+
+
+const Stack = createStackNavigator();
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          gestureEnabled: true,
+          gestureDirection: 'horizontal',
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
+        }}
+        headerMode='none'
+      >
+
+        <Stack.Screen name='Tabs' component={Tabs} />
+        <Stack.Screen name='ConfigTime' component={ConfigTime} />
+
+      </Stack.Navigator>
+      <StatusBar style="dark" />
+    </NavigationContainer>
+  );
+}
+
 const Tab = createMaterialTopTabNavigator();
 function Tabs() {
   return (
@@ -70,25 +105,3 @@ function Tabs() {
     </Tab.Navigator>
   );
 }
-
-const Stack = createStackNavigator();
-export default function App() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
-          gestureEnabled: true,
-          gestureDirection: 'horizontal',
-          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
-        }}
-        headerMode='none'
-      >
-        <Stack.Screen name='Tabs' component={Tabs} />
-        <Stack.Screen name='ConfigTime' component={ConfigTime} />
-      </Stack.Navigator>
-      <StatusBar style="auto" />
-    </NavigationContainer>
-  );
-}
-
-
