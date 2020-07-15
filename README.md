@@ -10,7 +10,7 @@
 
 ## :iphone: Installation
 Android:
-* Download the android apk in this [link](WAIT.FOR.IT)
+* Download the android apk in this [link](WAIT.FOR.IT) _(todo)_
 
 ## :books: Usage example
 Give the user an example
@@ -18,7 +18,7 @@ Give the user an example
 ![]()
 PICTURE
 
-_For more examples and usage, please refer to the [Wiki](https://github.com/Diego-Lopes-Ferreira/)._
+_For more examples and usage, please refer to the [Wiki](https://github.com/Diego-Lopes-Ferreira/)._ _(todo)_
 
 ### :computer: Developing
 
@@ -31,7 +31,7 @@ $ expo start // start the development server
 ```sh
 ~/src                      #
 ├─ database                # 
-  ├─ migration.js          # configure database(create tables and queries)
+| ├─ migration.js          # configure database(create tables and queries)
 | 
 ├─ utils                   #
 | ├─ api.js                # connections with database
