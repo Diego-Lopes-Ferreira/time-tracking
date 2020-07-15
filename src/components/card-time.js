@@ -8,6 +8,7 @@ export default function CardTime({ navigation, data }) {
   function gotoConfigTime() {
     navigation.navigate('ConfigTime', {data: data})
   }
+  const dhms = str_dhms(data.hms);
   return (
     <View >
       <TouchableOpacity
@@ -27,7 +28,7 @@ export default function CardTime({ navigation, data }) {
           </View>
           <View style={cardTime.right}>
             <Text style={texts.txtMedium}>{formatDatetoHours(data.start, data.end)}</Text>
-            <Text style={texts.txtSmall}>{() => str_dhms(data.hms)}</Text>
+            <Text style={texts.txtSmall}>{dhms}</Text>
           </View>
         </View>
       </TouchableOpacity>

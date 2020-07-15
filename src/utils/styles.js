@@ -2,8 +2,8 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 
-export const bgDark = '#BFCBFF';
 export const bgLight = '#D9DFFF';
+export const bgDark = '#BFCBFF';
 
 export const mainLight = '#6C7080';
 export const mainDark = '#41434C';
@@ -11,7 +11,7 @@ export const mainDark = '#41434C';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: bgLight,
     alignItems: 'center',
     justifyContent: 'center',
   },

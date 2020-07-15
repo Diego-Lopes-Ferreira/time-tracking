@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
 //import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -8,6 +8,7 @@ import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
 import { Feather } from '@expo/vector-icons';
+import { bgDark, bgLight, mainDark, mainLight } from './src/utils/styles';
 // Pages
 import Home from './src/pages/home';
 import Info from './src/pages/info';
@@ -24,10 +25,48 @@ function Tabs() {
     <Tab.Navigator
       backBehavior='initialRoute'
       tabBarPosition='bottom'
+      tabBarOptions={{
+        labelStyle: { fontSize: 12 },
+        tabStyle: {},
+        iconStyle: {alignItems: 'center', justifyContent: 'center'},
+        style: { backgroundColor: bgDark },
+        showIcon: true,
+        showLabel: true,
+      }}
+      screenOptions={{
+        
+      }}      
     >
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Info" component={Info} />
-      <Tab.Screen name="Settings" component={Settings} />
+      <Tab.Screen 
+        name="Home"
+        component={Home}
+        options={{
+          tabBarLabel: 'Home',
+          tabBarIcon: ({ tintColor }) => (
+            <Feather color={tintColor} name='home' size={24} />
+          ),
+        }}
+      />
+      <Tab.Screen 
+        name="Info"
+        component={Info}
+        options={{
+          tabBarLabel: 'Info',
+          tabBarIcon: ({ tintColor }) => (
+            <Feather color={tintColor} name='info' size={24} />
+          ),
+        }}
+      />
+      <Tab.Screen 
+        name="Settings"
+        component={Settings}
+        options={{
+          tabBarLabel: 'Settings',
+          tabBarIcon: ({ tintColor }) => (
+            <Feather color={tintColor} name='settings' size={24} />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 }
@@ -51,3 +90,5 @@ export default function App() {
     </NavigationContainer>
   );
 }
+
+
