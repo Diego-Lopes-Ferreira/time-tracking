@@ -5,10 +5,21 @@ import { Feather } from '@expo/vector-icons'
 import { cardTime, texts, bgDark } from '../utils/styles';
 
 export default function CardTime({ navigation, data }) {
+  /*
+    Card used on home activities list,
+    recives all "time" data from home and the navigation object
+    Goes to ConfigTime page
+  */
   function gotoConfigTime() {
     navigation.navigate('ConfigTime', {data: data})
   }
   const dhms = str_dhms(data.hms);
+
+  /* |------|----------|-------------| */
+  /* | icon | Activity | time - time | */
+  /* |      | Category | 1h 25min    | */
+  /* |------|----------|-------------| */
+
   return (
     <View >
       <TouchableOpacity
@@ -37,9 +48,9 @@ export default function CardTime({ navigation, data }) {
 }
 
 function formatDatetoHours(start='1995-12-17T03:24:00', end='1995-12-17T03:24:12') {
-  let fstart = start.slice(11, 16) //1995-12-17T03:24:00 -> 03:24
-  let fend = end.slice(11, 16) 
-  return fstart + ' - ' + fend
+  let final_start = start.slice(11, 16) //1995-12-17T03:24:00 -> 03:24
+  let final_end = end.slice(11, 16) 
+  return final_start + ' - ' + final_end
 }
 
 function str_dhms(date={seconds: 0, minutes: 0, hours: 0, days: 0}) {
@@ -56,5 +67,5 @@ function str_dhms(date={seconds: 0, minutes: 0, hours: 0, days: 0}) {
   if (date.seconds > 0) {
     final += parseInt(date.seconds) + 's'
   }
-  return final
+  return final // 1d 1h 1min 1s
 }

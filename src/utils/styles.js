@@ -19,6 +19,7 @@ export const styles = StyleSheet.create({
 
 export const cardTime = StyleSheet.create({
   wrapper: {
+    // TouchableOpacity
     width: '100%',
     height: 80,
     paddingVertical: 5,
@@ -30,28 +31,33 @@ export const cardTime = StyleSheet.create({
     marginVertical: 5,
   },
   content: {
+    // View
     flex: 1,
     flexDirection: 'row',
   },
+  left: {
+    // View
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 70,
+    width: 75,
+  },
   squareIcon: {
+    // View
     width: 60,
     height: 60,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 20,
   },
-  left: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: 70,
-    width: 75,
-  },
   middle: {
+    // View
     flex: 1,
     alignItems: 'flex-start',
     justifyContent: 'center',
   },
   right: {
+    // View
     marginHorizontal: 5,
     alignItems: 'flex-end',
     justifyContent: 'center',
