@@ -15,6 +15,8 @@ export const styles = StyleSheet.create({
     backgroundColor: bgLight,
     alignItems: 'center',
     justifyContent: 'center',
+    fontSize: 12,
+    color: mainDark,
   },
 });
 

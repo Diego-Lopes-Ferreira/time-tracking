@@ -24,6 +24,11 @@ export default function Home({ navigation }) {
         <Text style={texts.titleMedium}>{words.greeting}</Text>
         <Text style={texts.titleBig}>{timeNow}</Text>
       </View>
+      <TouchableOpacity
+        onPress={() => {navigation.navigate('Question')}}
+      >
+        <Text style={texts.titleMedium}>Go to Question</Text>
+      </TouchableOpacity>
       <FlatList
         style={{ flex: 1, width: Dimensions.get('window').width - 10 }}
         showsVerticalScrollIndicator={false}

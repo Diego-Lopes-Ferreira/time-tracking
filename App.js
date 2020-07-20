@@ -13,16 +13,23 @@ import Info from './src/pages/info';
 import Settings from './src/pages/settings';
 
 import ConfigTime from './src/pages/config-time';
+import Question from './src/pages/question';
 
 /*
   This file contains both navigator for the app: Tab navigator / Stack navigator
   The App function returns a stack navigator for all pages, and the tab navigator
   The Tabs function returns a tab navigator in wich contains all 3 tabs
   
-  The navigation wors like that:
+  The navigation works like that:
+  Question
+    QuestionTime
+
   Tabs
     Home - CardTime
       ConfigTime
+        Question
+          QuestionTime
+
     Info - CardPieChart, CardGoals
 
     Settings
@@ -43,10 +50,12 @@ export default function App() {
           cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
         }}
         headerMode='none'
+        style={{fontSize: 12, color: mainDark, }}
       >
 
         <Stack.Screen name='Tabs' component={Tabs} />
         <Stack.Screen name='ConfigTime' component={ConfigTime} />
+        <Stack.Screen name='Question' component={Question} />
 
       </Stack.Navigator>
       <StatusBar style="dark" />
