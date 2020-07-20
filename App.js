@@ -14,6 +14,7 @@ import Settings from './src/pages/settings';
 
 import ConfigTime from './src/pages/config-time';
 import Question from './src/pages/question';
+import QuestionTime from './src/pages/question-time';
 
 /*
   This file contains both navigator for the app: Tab navigator / Stack navigator
@@ -56,6 +57,7 @@ export default function App() {
         <Stack.Screen name='Tabs' component={Tabs} />
         <Stack.Screen name='ConfigTime' component={ConfigTime} />
         <Stack.Screen name='Question' component={Question} />
+        <Stack.Screen name='QuestionTime' component={QuestionTime} />
 
       </Stack.Navigator>
       <StatusBar style="dark" />

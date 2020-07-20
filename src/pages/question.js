@@ -30,14 +30,14 @@ export default function Question({ navigation }) {
       <View>
         <Text>{words.questionone + 'X' + words.questiontwo}</Text>
         <Text>{words.tip}</Text>
-          <Options userSelection={userSelection} button={words.send} />
+          <Options userSelection={userSelection} button={words.send} navigation={navigation} />
       </View>
     </View>
   );
 }
 
 
-function Options({ data, button, userSelection }) {
+function Options({ data, button, userSelection, navigation }) {
   // A list of components
   data = [
     { name: '1', color: '#ff0000', id: '#0-000' },
@@ -52,7 +52,7 @@ function Options({ data, button, userSelection }) {
       {items}
       <TouchableOpacity
         onPress={() => {
-          console.log(userSelection)
+          navigation.navigate('QuestionTime', { selectedItems: userSelection })
         }}
       >
         <Text>{button}</Text>
